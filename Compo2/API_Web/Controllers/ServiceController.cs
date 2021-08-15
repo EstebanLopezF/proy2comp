@@ -7,18 +7,18 @@ using API_Web.Models;
 namespace API_Web.Controllers
 {
 
-    public class UserController : ApiController
+    public class ServiceController : ApiController
     {
 
         Response API_Resp = new Response();
 
-        public IHttpActionResult Post(User user)
+        public IHttpActionResult Post(Service service)
         {
-                var mng = new UserManager();
-                mng.Create(user);
+                var mng = new ServiceManager();
+                mng.Create(service);
 
                 API_Resp = new Response();
-                API_Resp.Message = "El usuario fue registrado de manera exitosa.";
+                API_Resp.Message = "El servicio fue registrado de manera exitosa.";
 
                 return Ok(API_Resp);
         }
@@ -26,7 +26,7 @@ namespace API_Web.Controllers
         public IHttpActionResult Get()
         {
             API_Resp = new Response();
-            var mng = new UserManager();
+            var mng = new ServiceManager();
             API_Resp.Data = mng.RetrieveAll();
 
             return Ok(API_Resp);

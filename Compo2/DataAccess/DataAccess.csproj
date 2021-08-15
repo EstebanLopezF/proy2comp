@@ -62,8 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CRUD\CRUD_Factory.cs" />
-    <Compile Include="CRUD\CRUD_User.cs" />
-    <Compile Include="Mappers\User_Mapper.cs" />
+    <Compile Include="CRUD\CRUD_Service.cs" />
+    <Compile Include="Mappers\Service_Mapper.cs" />
     <Compile Include="DAO\SQL_DAO.cs" />
     <Compile Include="DAO\SQL_Operation.cs" />
     <Compile Include="Mappers\BS_Mapper.cs" />
