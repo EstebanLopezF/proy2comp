@@ -1,0 +1,86 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vActivateUser.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+<script src="~/Scripts/SessionInspector.js"></script>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<main class="form-container container">
+    <section class="my-5 mx-4">
+
+        <section class="section-title">
+            <p>Active su Cuenta</p>
+        </section>
+        <section class="generic-form">
+            <form id="frmUserData" class="generic-form">
+                <section class="d-flex justify-content-around align-items-center">
+                    <div class="col m-3">
+                        @Html.CTRL_ShowImageModel(ID: "txtUrlImage", Type: "image", Label: "", Src: "/Content/Images/default_profile.png", With: "250", Height: "250", ColumnDataName: "UrlImage")
+                    </div>
+                    <div class="col" text-cente>
+                        @Html.CTRL_Input(ID: "txtId", Type: "text", Label: "Cédula", ColumnDataName: "Id")
+                        @Html.CTRL_Input(ID: "txtName", Type: "text", Label: "Nombre", ColumnDataName: "Name")
+                        @Html.CTRL_Input(ID: "txtLastName", Type: "text", Label: "Apellido", ColumnDataName: "LastName")
+                    </div>
+                    <div class="col" text-cente>
+                        @Html.CTRL_Input(ID: "txtEmail", Type: "text", Label: "Correo Electrónico", ColumnDataName: "Email")
+                        @Html.CTRL_Input(ID: "txtPhoneNumber", Type: "text", Label: "Teléfono", ColumnDataName: "PhoneNumber")
+                    </div>
+                </section>
+            </form>
+
+            <section class="text-center" style="font-weight: 700; font-size: 25px; margin-bottom: 15px;">
+                <p>Detalles de la Propiedad</p>
+            </section>
+            <form id="frmPropertyData" class="generic-form">
+                <section class="d-flex justify-content-around align-items-center">
+                    <div class="col m-3">
+                        @Html.CTRL_Input(ID: "txtLocationDetails", Type: "text", Label: "Ubicación", ColumnDataName: "LocationDetails")
+                        @Html.CTRL_Input(ID: "txtAvailableDays", Type: "text", Label: "Días disponible", ColumnDataName: "AvailableDays")
+                    </div>
+                    <div class="col" text-cente>
+                        @Html.CTRL_Input(ID: "txtSize", Type: "text", Label: "Tamaño (M2)", ColumnDataName: "Size")
+                        @Html.CTRL_Input(ID: "txtOpenTime", Type: "text", Label: "Horario apertura (HH:MM)", ColumnDataName: "OpenTime")
+                    </div>
+                    <div class="col" text-cente>
+                        @Html.CTRL_Input(ID: "txtComission", Type: "text", Label: "Comisión", ColumnDataName: "Comission")
+                        @Html.CTRL_Input(ID: "txtCloseTime", Type: "text", Label: "Horario cierre: (HH:MM)", ColumnDataName: "CloseTime")
+                    </div>
+                </section>
+            </form>
+
+            <section class="text-center" style="font-weight: 700; font-size: 25px; margin-bottom: 15px;">
+                <p>Pago de la Suscripcion</p>
+            </section>
+            <form id="frmPayData" class="">
+                <section class="d-flex justify-content-around align-items-center">
+                    <div class="col m-3">
+                        @Html.CTRL_Dropdown(ID: "txtPaymentMethod", Label: "Método de Pago", ID_List: "LTS_METODOPAGO")
+                    </div>
+                    <div class="col" text-cente>
+                        @Html.CTRL_Input(ID: "txtAmount", Type: "text", Label: "Monto a pagar", ColumnDataName: "Amount")
+                    </div>
+                    <div id="ContentPhoneNumber" class="col" text-cente>
+                        @Html.CTRL_Input(ID: "txtPhoneNumberPY", Type: "text", Label: "Número de teléfono", ColumnDataName: "PhoneNumber")
+                    </div>
+                    <div id="PayPalDivContent" class="col justify-content-center" text-cente>
+
+                        <div class="col" text-cente id="paypal-button"></div>
+                        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+                    </div>
+                    <div id="ContentPayButton" class="col" text-cente>
+                        @Html.CTRL_Button(ViewName: "vActivateUser", ID: "btnPay", Label: "Pagar SINPE", OnClickFunction: "Pay", ButtonType: "btn-main-action")
+                    </div>
+                </section>
+            </form>
+
+            <section id="descriptionActivate" class="d-flex justify-content-around py-4">
+                <p>Al activar su cuenta usted acepta las condiciones y reglas de uso de la plataforma "Work-Together", esta de acuerdo con los montos de suscripción y comisión relacionada con los alquileres que se den y los cuales serán destinados a la plataforma, acepta las reglas de uso correcto y ética esperadas de los usuarios de "Work-Together", también está al tanto de las posibles repercusiones económicas y de acceso a la plataforma a las que puede verse expuesto si no se cumplen de manera correcta.</p>
+            </section>
+
+            <section class="d-flex justify-content-around py-4">
+                @Html.CTRL_Button(ViewName: "vActivateUser", ID: "btnActive", Label: "Activar cuenta", OnClickFunction: "Activate", ButtonType: "btn-main-action")
+            </section>
+        </section>
+    </section>
+</main>

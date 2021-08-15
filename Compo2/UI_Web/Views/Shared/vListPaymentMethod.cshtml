@@ -1,0 +1,45 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vPaymentMethod.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+<script src="~/Scripts/SessionInspector.js"></script>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<main id="main" class="form-container container">
+
+    <section class="section-title">
+        <p>Listado de Métodos de Pago</p>
+    </section>
+
+    <section class="d-flex justify-content-around">
+        @Html.CTRL_Table(ViewName: "vPaymentMethod", ID: "TBL_PaymentMethod_List", Title: "Listado de Métodos de Pago",
+        ColumnsTitle: "Identificación,Tipo,Cuenta,Estado", ColumnsDataName: "Id,Type,Account,Status",
+        OnSelectFunction: "BindFields")
+    </section>
+
+    <section class="d-none  my-5 mx-4" id="panel-paymetmethods">
+
+        <form id="frmPaymentMethodData" class="generic-form">
+            <section class="section-title text-center col-6" style="padding-top: 20px;">
+                <h2>Detalles de Método de Pago</h2>
+            </section>
+            <section class="d-flex justify-content-around">
+                <div class="col">
+                    @Html.CTRL_Dropdown(ID: "sltType", Label: "Tipo", ID_List: "LTS_METODOPAGO")
+                </div>
+                <div class="col">
+                    @Html.CTRL_Input(ID: "txtAccount", Type: "text", Label: "Cuenta", ColumnDataName: "Account")
+                </div>
+            </section>
+
+            <section class="d-flex justify-content-around py-4 button-group">
+                @Html.CTRL_Button(ViewName: "vPaymentMethod", ID: "btnCreate", Label: "Crear", OnClickFunction: "Create", ButtonType: "btn-main-action")
+                @Html.CTRL_Button(ViewName: "vPaymentMethod", ID: "btnUpdate", Label: "Guardar", OnClickFunction: "Update", ButtonType: "btn-main-action")
+                <button class="btn-main-action" id="panel-paymentMethod-close">Cerrar</button>
+            </section>
+        </form>
+    </section>
+
+    <section class="d-flex justify-content-around py-4">
+        @Html.ActionLink("Volver", "Index", "vListPaymentMethod", new { @class = "btn-second-action mx-4" })
+    </section>
+</main>

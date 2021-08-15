@@ -1,0 +1,28 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vLogin.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="form-container container">
+    <section class="my-5 mx-4">
+        <section class="section-title">
+            <p>Inicio de Sesión</p>
+        </section>
+
+        <section class="generic-form">
+            <form id="frmLoginData" class="d-flex flex-column align-items-center">
+                <div class="col-md-4">
+                    @Html.CTRL_Input(ID: "txtID", Type: "number", Label: "Número de Identificación", ColumnDataName: "ID_Owner")
+                    @Html.CTRL_Input(ID: "txtPassword", Type: "password", Label: "Contraseña", ColumnDataName: "Value")
+                    @Html.ActionLink("¿Olvidó su Contraseña?", "vRetPassword", "Home", new { @class = "", id = "BTN_RedirRecCont" })
+                </div>
+            </form>
+
+            <section class="d-flex justify-content-around py-4 button-group">
+                @Html.CTRL_Button(ViewName: "vLogin", ID: "BTN_Login", Label: "Iniciar Sesión", OnClickFunction: "VerifyAccount", ButtonType: "btn-main-action")
+                @Html.ActionLink("Volver", "Index", "vRegisterProperty", new { @class = "btn-second-action mx-4" })
+            </section>
+        </section>
+    </section>
+</main>

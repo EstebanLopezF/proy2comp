@@ -1,0 +1,66 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vReservation.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="table-container container">
+    <section class="my-5 mx-4">
+
+        <section class="section-title">
+            <p>Realizar Reservación</p>
+        </section>
+
+        <form id="frmReservationData" class="generic-form">
+            <section class="d-flex justify-content-around align-items-center">
+                <div class="col-md-3 align-self-start">
+                    @Html.CTRL_Input(ID: "txtIdWorkspace", Type: "number", Label: "Id del espacio de trabajo", ColumnDataName: "IdWorkspace")
+                    @Html.CTRL_Input(ID: "txtOpenTime", Type: "text", Label: "Horario de apertura", ColumnDataName: "IdOpenTime")
+                    @Html.CTRL_Input(ID: "txtDaysAvailable", Type: "text", Label: "Dias disponibles", ColumnDataName: "IdSchedulesAvailable")
+                </div>
+
+                <div class="col-md-4 align-self-start">
+                    @Html.CTRL_Input(ID: "txtWorkspaceName", Type: "text", Label: "Nombre del espacio de trabajo", ColumnDataName: "WorkspaceName")
+                    @Html.CTRL_Input(ID: "txtCloseTime", Type: "text", Label: "Horario de cierre", ColumnDataName: "IdCloseTime")
+                    @Html.CTRL_Input(ID: "txtRentalPrice", Type: "number", Label: "Costo de la renta", ColumnDataName: "IdRentalPrice")
+                </div>
+            </section>
+        </form>
+
+
+
+        <section class="text-center" style="font-weight: 700; font-size: 25px; margin-bottom: 15px; margin-top: 45px">
+            <p>Pago de la Reservación</p>
+        </section>
+        <form id="frmPayData" class="">
+            <section class="d-flex justify-content-around align-items-center">
+                <div class="col m-3">
+                    @Html.CTRL_Dropdown(ID: "txtPaymentMethod", Label: "Método de Pago", ID_List: "LTS_METODOPAGO")
+                </div>
+                <div class="col" text-cente>
+                    @Html.CTRL_Input(ID: "txtAmount", Type: "text", Label: "Monto a pagar", ColumnDataName: "Amount")
+                </div>
+                <div id="ContentPhoneNumber" class="col" text-cente>
+                    @Html.CTRL_Input(ID: "txtPhoneNumberPY", Type: "text", Label: "Número de Teléfono", ColumnDataName: "PhoneNumber")
+                </div>
+                <div id="PayPalDivContent" class="col justify-content-center" text-cente>
+
+                    <div class="col" text-cente id="paypal-button"></div>
+                    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+                </div>
+                <div id="ContentPayButton" class="col" text-cente>
+                    @Html.CTRL_Button(ViewName: "vReservation", ID: "btnPay", Label: "Pagar PAYPAL", OnClickFunction: "Pay", ButtonType: "btn-main-action")
+                </div>
+            </section>
+        </form>
+
+
+
+        <section class="d-flex justify-content-around py-4">
+            @Html.CTRL_Button(ViewName: "vReservation", ID: "BTN_Create", Label: "Realizar reservacion", OnClickFunction: "Create", ButtonType: "btn-main-action")
+            @Html.ActionLink("Volver", "vListReservation", "vRegisterWorkspace", new { @class = "btn-second-action mx-4" })
+        </section>
+    </section>
+</main>

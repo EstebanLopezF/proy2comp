@@ -1,0 +1,145 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vProfits.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+<script src="~/Scripts/SessionInspector.js"></script>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<main id="main" class="form-container container">
+
+    <section class="my-5 mx-4">
+
+        <section class="section-title">
+            <p>Mis Movimientos Financieros</p>
+        </section>
+
+        <section style="width:70%; height:240px" id="BillSummaryDetail">
+
+            <div id="SummaryDiv" style="padding: 0px 0px 0px;">
+                <div style="float: left; width:50%">
+                    <p id="ptitle1" style="text-align:center">Créditos</p>
+                    <table id="tableSummary" style="width:100%; table-layout:fixed ">
+                        <tr>
+                            <th style="text-align: right;">Cobros Totales:</th>
+                            <td style="text-align: left;"><p id="txtIncomingsAll">₡ 0</p></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right;">Ganancias:</th>
+                            <td style="text-align: left;"><p id="txtIncomings">₡ 0</p></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right;">Impuestos:</th>
+                            <td style="text-align: left;"><p id="txtIVA">₡ 0</p></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="float: right; width:50%">
+                    <p id="ptitle2" style="text-align:center">Débitos</p>
+                    <table id="tableSummary2" style="width:100%; table-layout:fixed">
+                        <tr>
+                            <th style="text-align: right;">Suscripciones:</th>
+                            <td style="text-align: left;"><p id="txtPayedSuscriptions">₡ 0</p></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right;">Comisiones:</th>
+                            <td style="text-align: left;"><p id="txtPayedComition">₡ 0</p></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right;">Reembolsos:</th>
+                            <td style="text-align: left;"><p id="txtReturned">₡ 0</p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section style="width:80%">
+                <div id="chartContainer" style="height: 300px; width: 100%; float: none;">
+                </div>
+            </section>
+
+        <section class="d-flex justify-content-around">
+            @Html.CTRL_Table(ViewName: "vProfits", ID: "TBL_Bill_List", Title: "Movimientos Financieros",
+            ColumnsTitle: "Número,Tipo,Detalle,Fecha,SubTotal,Monto", ColumnsDataName: "Id,Type,Description,Timestamp,SubTotal,Total",
+            OnSelectFunction: "BindFields")
+        </section>
+
+    </section>
+
+    <section id="BillSection" class="d-none my-5 mx-4">
+        <section class="section-title text-center col-md-4" style="padding-top: 20px;">
+            <h2>Detalles de Factura</h2>
+        </section>
+        <div id="BillDiv1">
+            <div style="padding: 0px 30px 30px;">
+
+                <table id="tableFormBill" style="width:100%;  ">
+                    <tr>
+                        <th width="85" style="text-align: left;">Factura n°:</th>
+                        <td style="text-align: left;"><p id="txtBillNumber"></p></td>
+                    </tr>
+                    <tr>
+                        <th width="85" style="text-align: left;">Cédula:</th>
+                        <td style="text-align: left;"><p id="txtClientCed"></p></td>
+                    </tr>
+                    <tr>
+                        <th width="85" style="text-align: left;">Nombre:</th>
+                        <td style="text-align: left;"><p id="txtClientName"></p></td>
+                    </tr>
+                    <tr>
+                        <th width="85" style="text-align: left;">Teléfono:</th>
+                        <td style="text-align: left;"><p id="txtClientPhone"></p></td>
+                    </tr>
+                    <tr>
+                        <th width="85" style="text-align: left;">Correo:</th>
+                        <td style="text-align: left;"><p id="txtClientEmail"></p></td>
+                    </tr>
+                    <tr>
+                        <th width="85" style="text-align: left;">Fecha:</th>
+                        <td style="text-align: left;"><p id="txtDate"></p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div>
+            <div id="BillDiv2">
+
+                <table id="tableBillDetail" style="width:100%;">
+                    <tr>
+                        <th style="text-align: center;">Item</th>
+                        <th style="text-align: center;">Detalle</th>
+                        <th style="text-align: center; ">Precio</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center; border-top: 1px solid black;">1</th>
+                        <td style="text-align: center; border-top: 1px solid black;"><p id="txtDetail"></p></td>
+                        <td style="text-align: center; border-top: 1px solid black;"><p id="txtPrice"></p></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; border-top: 3px solid black;"></td>
+                        <th style="text-align: right; border-top: 3px solid black;">SUBTOTAL:</th>
+                        <td style="text-align: center; border-top: 3px solid black;"><p id="txtSubtotal"></p></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"></td>
+                        <th style="text-align: right;">IVA (13%):</th>
+                        <td style="text-align: center; "><p id="txtIva"></p></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"></td>
+                        <th style="text-align: right;">TOTAL:</th>
+                        <td style="text-align: center;"><p id="txtTotal"></p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <section class="d-flex justify-content-around py-4 button-group">
+            <button class="btn-main-action" id="panel-bills-close">Cerrar</button>
+        </section>
+    </section>
+
+    <div class="d-flex justify-content-start py-4 button-group">
+        @Html.ActionLink("Volver", "Index", "vListRentProfits", new { @class = "btn-second-action mx-4" })
+    </div>
+</main>

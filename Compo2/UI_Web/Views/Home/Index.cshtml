@@ -1,0 +1,56 @@
+<main id="main">
+    <section id="default" class="d-flex align-items-center">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                    <h1>Busca los mejores espacios de trabajo compartido</h1>
+                    <h2>Somos un equipo que busca la reactivación económica del sector más afectado por la pandemia</h2>
+                    <div>
+                        @Html.ActionLink("Registrar Propiedad", "vRegisterUser", "Home", new { @class = "btn-main-action" })
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                    <img src="~/Content/Images/hero-img.svg" class="img-fluid animated" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        localStorage.setItem("IsUserCreate", "no");
+    </script>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+                    <img src="~/Content/Images/about-img.svg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-5 pt-lg-0">
+                    <h3>Busca los mejores espacios de trabajo compartido</h3>
+                    <p>
+                        Nuestra red global de espacios de trabajo le permite trabajar donde sea que necesite estar, en un entorno productivo y profesional. Cree un lugar de trabajo adecuado para su empresa hoy, y mañana, y prospere entre una comunidad empresarial global.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i class="bx bx-time-five"></i>
+                            <h4>Diversidad de horarios</h4>
+                            <p>Te ofrecemos horarios flexibles, para que puedas atender tus reuniones a cualquier hora</p>
+                        </div>
+                        <div class="col-md-6">
+                            <i class="bx bx-bulb"></i>
+                            <h4>Gran variedad de servicios</h4>
+                            <p>Brindamos un entorno inspirador para concentrarse, colaborar y hacer su mejor trabajo.</p>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-around">
+                        <div class="4">
+                            @Html.ActionLink("Ver Todas Las Propiedades", "vListProperties", "Home", new { @class = "btn-main-action" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

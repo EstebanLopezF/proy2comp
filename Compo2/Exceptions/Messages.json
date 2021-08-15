@@ -1,0 +1,114 @@
+﻿[
+  {
+    "ID": -1,
+    "Message": "Use this as a mock, not a message"
+  },
+  {
+    "ID": 2,
+    "Message": "La propiedad indicada, no existe"
+  },
+  {
+    "ID": 3,
+    "Message": "El usuario ya existe"
+  },
+  {
+    "ID": 4,
+    "Message": "No existe una cuenta de usuario con este ID"
+  },
+  {
+    "ID": 1,
+    "Message": "Verifique el formato de las fechas ingresadas"
+  },
+  {
+    "ID": 5,
+    "Message": ""
+  },
+  {
+    "ID": 6,
+    "Message": "El usuario indicado, no ha creado su contraseña"
+  },
+  {
+    "ID": 7,
+    "Message": "La contraseña es incorrecta"
+  },
+  {
+    "ID": 8,
+    "Message": "El rol ya existe"
+  },
+  {
+    "ID": 9,
+    "Message": "El rol no existe"
+  },
+  {
+    "ID": 10,
+    "Message": "Por favor, obtenga una contraseña temporal"
+  },
+  {
+    "ID": 11,
+    "Message": "La contraseña ingresada, es incorrecta"
+  },
+  {
+    "ID": 12,
+    "Message": "La solicitud de registro ya existe"
+  },
+  {
+    "ID": 13,
+    "Message": "La solicitud de registro solicitada no existe"
+  },
+  {
+    "ID": 14,
+    "Message": "El metodo de pago ya existe"
+  },
+  {
+    "ID": 15,
+    "Message": "El metodo de pago no existe"
+  },
+  {
+    "ID": 16,
+    "Message": "La contraseña no puede ser igual que alguna contraseña previa"
+  },
+  {
+    "ID": 17,
+    "Message": "La factura ya existe"
+  },
+  {
+    "ID": 18,
+    "Message": "La Factura indicada no existe en el sistema"
+  },
+  {
+    "ID": 19,
+    "Message": "La subscripción indicada, no existe."
+  },
+  {
+    "ID": 20,
+    "Message": "El usuario relacionado, ya tiene uns subscripción asociada."
+  },
+  {
+    "ID": 21,
+    "Message": "La verificacion no existe"
+  },
+  {
+    "ID": 22,
+    "Message": "La reservacion ya existe"
+  },
+  {
+    "ID": 23,
+    "Message": "Ya existe un reembolso con este identificador."
+  },
+  {
+    "ID": 24,
+    "Message": "El reembolso solicitado no existe"
+  },
+  {
+    "ID": 25,
+    "Message": "Ya existe una sancion economica con este identificador."
+  },
+  {
+    "ID": 26,
+    "Message": "La sancion economica solicitada no existe"
+  },
+  {
+    "ID": 27,
+    "Message": "Tiempo de reservacion ya existe"
+  }
+]

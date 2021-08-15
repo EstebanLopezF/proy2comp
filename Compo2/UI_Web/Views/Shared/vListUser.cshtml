@@ -1,0 +1,55 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vUser.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+<script src="~/Scripts/SessionInspector.js"></script>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<main id="main" class="form-container container">
+
+    <section class="my-5 mx-4">
+
+        <section class="section-title">
+            <p>Usuarios del Sistema</p>
+        </section>
+
+        <section class="d-flex justify-content-around">
+            @Html.CTRL_Table(ViewName: "vUser", ID: "TBL_User_List", Title: "Listado de Usuarios",
+            ColumnsTitle: "Identificación,Nombre,Apellido,Correo Electrónico,Estado,Rol", ColumnsDataName: "Id,Name,LastName,Email,Status,Rol",
+            OnSelectFunction: "BindFields")
+        </section>
+
+        <section class="d-none generic-form" id="panel-users">
+            <form id="frmUserData">
+                <section class="section-title text-center col-md-4" style="padding-top: 20px;">
+                    <h2>Detalles de Usuario</h2>
+                </section>
+                <section class="d-flex justify-content-around">
+
+                    <section class="col-md-3" style="padding-top: 10px">
+                        @Html.CTRL_ShowImageModel(ID: "txtImage", Type: "image", Label: "", Src: "/Content/Images/default_profile.png", With: "300", Height: "300", ColumnDataName: "UrlImage")
+                    </section>
+                    <section class="col-md-3 align-self-start">
+                        @Html.CTRL_Input(ID: "txtId", Type: "number", Label: "Cédula", ColumnDataName: "Id")
+                        @Html.CTRL_Input(ID: "txtName", Type: "text", Label: "Nombre", ColumnDataName: "Name")
+                        @Html.CTRL_Input(ID: "txtLastName", Type: "text", Label: "Apellido", ColumnDataName: "LastName")
+                        @Html.CTRL_Input(ID: "txtElectronicWalletAmount", Type: "text", Label: "Saldo en Monedero", ColumnDataName: "ElectronicWalletAmount")
+                    </section>
+                    <section class="col-md-3 align-self-start">
+                        @Html.CTRL_Input(ID: "txtEmail", Type: "text", Label: "Correo Eléctronico", ColumnDataName: "Email")
+                        @Html.CTRL_Input(ID: "txtPhoneNumber", Type: "number", Label: "Teléfono", ColumnDataName: "PhoneNumber")
+                        @Html.CTRL_Dropdown(ID: "sltStatus", Label: "Status", ID_List: "LST_USUARIO")
+                        @Html.CTRL_Dropdown(ID: "sltRol", Label: "Rol", ID_List: "LST_ROLES")
+                    </section>
+                </section>
+                <section class="d-flex justify-content-around py-4 button-group">
+                    @Html.CTRL_Button(ViewName: "vUser", ID: "btnUpdate", Label: "Guardar", OnClickFunction: "UpdateRol", ButtonType: "btn-main-action")
+                    <button class="btn-main-action" id="panel-users-close">Cerrar</button>
+                </section>
+            </form>
+        </section>
+
+    </section>
+    <div class="d-flex justify-content-start py-4 button-group">
+        @Html.ActionLink("Volver", "Index", "vListUser", new { @class = "btn-second-action mx-4" })
+    </div>
+</main>

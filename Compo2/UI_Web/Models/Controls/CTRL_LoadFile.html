@@ -1,0 +1,41 @@
+﻿<section class="d-flex flex-column align-items-center col-md-10 inFile-container my-3">
+    <label for="btnOpenDialog">-#Label-</label>
+    <input type="button" id="btnOpenDialog" class="btn-main-action" value="Subir" />
+
+    <p id="outUploadedFiles" class="my-4"></p>
+    
+    <input type="file" id="inFile" class="d-none" accept="-#Accept-" />
+</section>
+<script>
+    $("#btnOpenDialog").click(() => {
+        $("#inFile").click();
+    });
+    $("#inFile").change((e) => {
+        const formData = new FormData();
+        const view = new -#ViewName-();
+
+        formData.append("file", e.target.files[0]);
+
+        $.ajax({
+            url: "https://localhost:44375/Home/Upload",
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            type: "POST",
+            enctype: 'multipart/form-data',
+            success: (data) => {
+            }
+        });
+
+        if (view != undefined) {
+            view.-#FunctionName-(e.target.files[0].name);
+            $("#outUploadedFiles").text(e.target.files[0].name);
+            $("#btnOpenDialog").val("Gracias :)");
+            $("#btnOpenDialog").prop("disabled", true);
+
+            $("#inFile").text("Agregado");
+
+        }
+    })
+</script>

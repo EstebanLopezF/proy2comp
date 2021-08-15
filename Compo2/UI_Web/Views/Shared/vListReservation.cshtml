@@ -1,0 +1,54 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vReservation.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="table-container container">
+    <section class="section-title">
+        <p>Listado de reservaciones</p>
+    </section>
+
+    <section class="d-flex justify-content-around">
+        @Html.CTRL_Table(ViewName: "vReservation", ID: "TBL_Reservation_List", Title: "Listado de Espacios de Trabajo",
+       ColumnsTitle: "Id, Id del espacio de trabajo, Cedula del usuario, Calificacion del Espacio de Trabajo, " +
+       "Calificacion del Propietario, Calificacion del Cliente, Codigo del QR, URL del QR, Codigo del tiempo de reserva",
+       ColumnsDataName: "Id,IdWorkspace,ID_Owner,RatingWorkspace,RatingOwner,RatingCustomer,QR_Code,QR_URL,CodeTime",
+       OnSelectFunction: "BindFields")
+    </section>
+
+    <section class="d-none my-5 mx-4" id="panel-reservation">
+        <form id="frmReservationData" class="generic-form">
+
+            <section class="section-title text-center col-5">
+                <h2>Detalles de las Reservaciones</h2>
+            </section>
+
+            <section class="d-flex justify-content-around align-items-center">
+                <div class="col-md-3 align-self-start">
+                    @Html.CTRL_Input(ID: "txtId", Type: "number", Label: "Id de la reservacion", ColumnDataName: "Id")
+                    @Html.CTRL_Input(ID: "txtWorkspaceId", Type: "number", Label: "Id del espacio de trabajo", ColumnDataName: "IdWorkspace")
+                    @Html.CTRL_Input(ID: "txtRatingWorkspace", Type: "number", Label: "Calificacion del espacio de trabajo", ColumnDataName: "RatingWorkspace")
+                    @Html.CTRL_Input(ID: "txtRatingCustomer", Type: "number", Label: "Calificacion del cliente", ColumnDataName: "RatingCustomer")
+                    @Html.CTRL_Input(ID: "txtQRURL", Type: "text", Label: "URL del codigo QR", ColumnDataName: "QR_URL")
+                </div>
+                <div class="col-md-4 align-self-start">
+                    @Html.CTRL_Input(ID: "txtUserId", Type: "number", Label: "Cedula del usuario", ColumnDataName: "ID_Owner")
+                    @Html.CTRL_Input(ID: "txtState", Type: "text", Label: "Estado de la reservacion", ColumnDataName: "State")
+                    @Html.CTRL_Input(ID: "txtRatingOWner", Type: "number", Label: "Calificacion del propietario", ColumnDataName: "RatingOwner")
+                    @Html.CTRL_Input(ID: "txtQRCode", Type: "text", Label: "Codigo QR de la reservacion", ColumnDataName: "QR_Code")
+                    @Html.CTRL_Input(ID:"txtCode", Type: "number", Label: "Codigo de tiempo de reserva", ColumnDataName: "CodeTime")
+                </div>
+            </section>
+
+            <section class="d-flex justify-content-around py-4 button-group">
+                <button class="btn-main-action" id="panel-reservation-close">Cerrar</button>
+            </section>
+        </form>
+    </section>
+
+    <section class="d-flex justify-content-start py-4 button-group">
+        @Html.ActionLink("Volver", "Index", "vListReservation", new { @class = "btn-second-action mx-4" })
+    </section>
+</main>

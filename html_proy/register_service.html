@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVI-24</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+</head>
+<body>
+
+    <div class="header">
+        <a href="#default" class="logo">SERVI-24</a>
+        <div class="header-right">
+          <a href="#home">Inicio</a>
+          <a class="active" href="register_service.html">Registro</a>
+          <a href="list_service.html">Listado</a>
+          <a href="#about"></a>
+        </div>
+      </div> 
+
+<form action="registrarionRequest">
+
+    <div class="container">
+        <h1 id="titleRegister">Registro de Servicio</h1>
+        <section class="d-flex justify-content-around">
+
+            <div class="col-md-6">
+                <label for="serviceName"><b>Nombre del Servicio</b></label>
+                <input type="text" placeholder="Ej: Repuestos Rodriguez" name="serviceName" id="serviceName" required>
+
+                <label for="chargeName"><b>Nombre del Encargado</b></label>
+                <input type="text" placeholder="Ej: Esteban López Fernández" name="chargeName" id="chargeName" required>
+
+                <label for="service"><b>Tipo de Servicio</b></label>
+                <input type="text" placeholder="Ej: Repuestos" name="service" id="service" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="phoneNum"><b>Número de Teléfono</b></label>
+                <input type="text" placeholder="Ej: 8888-8888" name="phoneNum" id="phoneNum" required>
+
+                <label for="email"><b>Correo Electrónico</b></label>
+                <input type="text" placeholder="Ej: repuestos@gmail.com" name="email" id="email" required>
+
+            </div>
+
+        </section>
+
+        <div id="divDescription">
+            <label for="description"><b>Descripción de Servicios</b></label>
+            <input type="text" placeholder="Ej: Cambio de llantas, cambio de aceite..." name="description" id="description">
+        </div>
+
+    </div>
+
+  </form> 
+  <div id="buttom_register" class="button_cont"><a class="example_c" >Registrar</a></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="copyr" class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by SERVI-24</p>
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+<script type="text/javascript" src="JS/register.js"></script>
+</html>

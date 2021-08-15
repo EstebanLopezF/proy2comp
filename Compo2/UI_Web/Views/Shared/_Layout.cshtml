@@ -1,0 +1,160 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vLogin.js"></script>
+<script src="~/Scripts/SessionInspector.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work-Together</title>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.semanticui.min.js"></script>
+    <script src="~/Scripts/semantic.min.js"></script>
+
+    <script src="~/Content/Chart.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/semantic.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.semanticui.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="~/Scripts/Views/ControlActions.js"></script>
+    <script src="~/Scripts/Service/SessionStorage.js"></script>
+    <script src="~/Scripts/Variables.js"></script>
+
+    <script src="~/Scripts/Views/ValidationHelper.js"></script>
+    <script src="~/Scripts/UI_Helper.js"></script>
+    <script src="~/Scripts/Service/LocalStorage.js"></script>
+</head>
+<body>
+    <!-- ======= Start Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1 class="text-light"><a href="/"><span>Work-Together</span></a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul class="list-unstyled">
+                    <li>
+                        @Html.ActionLink("Iniciar Sesión", "vLogin", "Home", new { @class = "btn-orange-header", id = "BTN_HomeLogin" })
+                        @Html.CTRL_Button(ViewName: "vLogin", ID: "BTN_HomeLogout", Label: "Cerrar Sesión", OnClickFunction: "Logout", ButtonType: "btn-main-action d-none mt-0")
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Registrarse", "vRegisterUser", "Home", new { @class = "", id = "BTN_Register" })
+                    </li>
+
+                    <li id="userOptions" class="dropdown d-none">
+                        <a href="#"><span>Opciones</span> <i class="bi bi-chevron-down"></i></a>
+
+                        <ul class="list-unstyled">
+                            <li id="btnListProperties" class="d-none">
+                                @Html.ActionLink("Listado de Propiedades", "vListProperties", "Home", new { })
+                            </li>
+                            <li id="btnRegisterProperty" class="d-none">
+                                @Html.ActionLink("Registro de Propiedad", "vRegisterProperty", "Home", new { })
+                            </li>
+                            <li id="btnRegisterWorkspace" class="d-none">
+                                @Html.ActionLink("Registro de Espacio de Trabajo", "vRegisterWorkspace", "Home", new { })
+                            </li>
+                            <li id="btnListWorkspace" class="d-none">
+                                @Html.ActionLink("Listado de Espacios de Trabajo", "vListWorkspace", "Home", new { })
+                            </li>
+                            <li id="btnRegisterUser" class="d-none">
+                                @Html.ActionLink("Registro de Usuario", "vRegisterUser", "Home", new { })
+                            </li>
+                            <li id="btnListUsuer" class="d-none">
+                                @Html.ActionLink("Listado de Usuarios", "vListUser", "Home", new { })
+                            </li>
+                            <li id="btnProfileUser" class="d-none">
+                                @Html.ActionLink("Perfil de Usuario", "vProfileUser", "Home", new { })
+                            </li>
+                            <li id="btnListPaymentMethod" class="d-none">
+                                @Html.ActionLink("Listado de Métodos de Pago", "vListPaymentMethod", "Home", new { })
+                            </li>
+                            <li id="btnActivateUser" class="d-none">
+                                @Html.ActionLink("Activación de Usuario", "vActivateUser", "Home", new { })
+                            </li>
+                            <li id="btnListRegistryRequest" class="d-none">
+                                @Html.ActionLink("Listado de Solicitudes de Registro", "vListRegistrationRequest", "Home", new { @class = "" })
+                            </li>
+                            <li id="btnListBill" class="d-none">
+                                @Html.ActionLink("Financiero de Aplicación", "vListBill", "Home", new { @class = "" })
+                            </li>
+                            <li id="btnListRefounds" class="d-none">
+                                @Html.ActionLink("Cancelaciones y Reembolsos", "vRefound", "Home", new { @class = "" })
+                            </li>
+                            <li id="btnListRentProfits" class="d-none">
+                                @Html.ActionLink("Mis Movimientos Financieros", "vListRentProfits", "Home", new { @class = "" })
+                            </li>
+                            <li id="btnListReservation" class="d-none">
+                                @Html.ActionLink("Listado de reservaciones", "vListReservation", "Home", new { })
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <script>
+        document.getElementById("BTN_Register").addEventListener("click", function () {
+            localStorage.setItem("IsUserCreate", "yes");
+        });
+    </script>
+
+    <section id="alert_container" class="alert alert-success alert-dismissable" style="display: none">
+        <button type="button" class="close" onclick="$('.alert').hide()">&times;</button>
+        <span id="alert_message"></span>
+    </section>
+
+    <section class="spinner spinner-container" style="display: none;">
+        <div class="spinner-body">
+            <div class="spinner-grow text-primary" role="status" style="width: 5em; height: 5em;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </section>
+
+    @RenderBody()
+
+    <footer id="footer">
+        <div class="container py-4 w-100">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Work-Together</span></strong>. Todos los derechos reservados
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/ -->
+                Designed by <a href="https://bootstrapmade.com/">Karmal</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <script src="~/Scripts/MapConfig.js"></script>
+</body>
+</html>

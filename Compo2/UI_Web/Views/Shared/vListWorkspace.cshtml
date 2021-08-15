@@ -1,0 +1,49 @@
+﻿@using Web_UI.Models.Helpers;
+<script src="~/Scripts/Views/vWorkspace.js"></script>
+<script src="~/Scripts/Views/ValidationHelper.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="table-container container">
+    <section class="section-title">
+        <p>Listado de Espacios de Trabajo</p>
+    </section>
+    <section class="d-flex justify-content-around">
+        @Html.CTRL_Table(ViewName: "vWorkspace", ID: "TBL_Workspace_List", Title: "Listado de Espacios de Trabajo",
+       ColumnsTitle: "Id, Id de la Propiedad, Estado, Tamaño", ColumnsDataName: "Id,PropetiesId,State,SizeM2",
+       OnSelectFunction: "BindFields")
+    </section>
+
+    <section class="d-none my-5 mx-4" id="panel-workspaces">
+        <form id="frmWorkspaceData" class="generic-form">
+            <section class="section-title text-center col-5" style="padding-top: 20px;">
+                <h2>Detalles del Espacio de Trabajo</h2>
+            </section>
+            <section class="d-flex justify-content-around align-items-center">
+
+                <div class="col-md-3 align-self-start">
+                    @Html.CTRL_Input(ID: "txtId", Type: "text", Label: "Id", ColumnDataName: "Id")
+                    @Html.CTRL_Input(ID: "txtPropertyId", Type: "text", Label: "Propiedad relacionada", ColumnDataName: "PropetiesId")
+                    @Html.CTRL_Dropdown(ID: "sltState", Label: "Estado", ID_List: "LTS_ESPACIOS")
+                </div>
+                <div class="col-md-3 align-self-start">
+                    @Html.CTRL_Input(ID: "txtSize", Type: "number", Label: "Tamaño (M2)", ColumnDataName: "SizeM2")
+                    @Html.CTRL_Input(ID: "txtName", Type: "text", Label: "Nombre", ColumnDataName: "Name")
+                    @Html.CTRL_Input(ID: "txtRentalPrice", Type: "number", Label: "Costo de renta:", ColumnDataName: "RentalPrice")
+                </div>
+            </section>
+        </form>
+
+        <section class="d-flex justify-content-around py-4 button-group">
+            @Html.CTRL_Button(ViewName: "vWorkspace", ID: "BTN_Update", Label: "Actualizar", OnClickFunction: "Update", ButtonType: "btn-main-action")
+            @Html.CTRL_Button(ViewName: "vWorkspace", ID: "BTN_Reservation", Label: "Reservar", OnClickFunction: "Reservation", ButtonType: "btn-main-action")
+            <button class="btn-main-action" id="panel-workspaces-close">Cerrar</button>
+        </section>
+
+    </section>
+
+        <section class="d-flex justify-content-start py-4 button-group">
+            @Html.ActionLink("Volver", "Index", "vListWorkspace", new { @class = "btn-second-action mx-4" })
+        </section>
+</main>
