@@ -62,7 +62,7 @@ $( "#buttom_register" ).click(function() {
             console.log(data);
 
             xhr = new XMLHttpRequest(); 
-            var url = "https://localhost:44346/api/Service"; 
+            var url = "http://proyectofinalcomponentescenfoteccr.azurewebsites.net/api/Service"; 
             xhr.open("POST", url, true); 
             xhr.setRequestHeader("Content-type", "application/json"); 
             xhr.onreadystatechange = function () {  

@@ -20,7 +20,7 @@ function fillTable(jsonI) {
 
 $('document').ready(
    
-    fetch('https://localhost:44346/api/Service')
+    fetch('http://proyectofinalcomponentescenfoteccr.azurewebsites.net/api/Service')
       .then(response => response.json())
       .then(json => fillTable(json))
 
