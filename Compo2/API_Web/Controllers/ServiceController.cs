@@ -3,10 +3,11 @@ using POJOS;
 using System;
 using System.Web.Http;
 using API_Web.Models;
+using System.Web.Http.Cors;
 
 namespace API_Web.Controllers
 {
-
+    [EnableCors(origins: "*", "*", "*")]
     public class ServiceController : ApiController
     {
 

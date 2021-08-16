@@ -8,8 +8,9 @@ namespace API_Web
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            //var cors = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(cors);
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
